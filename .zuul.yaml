@@ -1,0 +1,35 @@
+- project:
+    check:
+      jobs:
+        - fog-telefonica-unittest-test
+        - fog-telefonica-unittest-spec
+
+- job:
+    name: fog-telefonica-unittest-test
+    parent: init-test
+    description: |
+      fog-telefonica unittest test tests
+    run: playbooks/fog-telefonica-unittest-test/run.yaml
+    vars:
+      rvm:
+        2.3.8
+        2.4.5
+        2.5.3
+        2.6.0
+        jruby-head
+    nodeset: ubuntu-xenial
+
+- job:
+    name: fog-telefonica-unittest-spec
+    parent: init-test
+    description: |
+      fog-telefonica unittest spec tests
+    run: playbooks/fog-telefonica-unittest-spec/run.yaml
+    vars:
+      rvm:
+        2.3.8
+        2.4.5
+        2.5.3
+        2.6.0
+        jruby-head
+    nodeset: ubuntu-xenial
